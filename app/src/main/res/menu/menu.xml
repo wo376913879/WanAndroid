@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/ic_icon_home"
+        android:title="@string/Home_page"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/project"
+        android:enabled="true"
+        android:icon="@drawable/icon_project"
+        android:title="@string/project"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/offical_accounts"
+        android:enabled="true"
+        android:icon="@drawable/icon_offical_accounts"
+        android:title="@string/offical_accounts"
+        app:showAsAction="ifRoom" />
+</menu>

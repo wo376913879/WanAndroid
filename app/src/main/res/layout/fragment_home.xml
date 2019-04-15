@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp_6">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_175"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_6">
+
+        <com.kelin.banner.view.BannerView
+            android:id="@+id/vp_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF"
+            app:bannerIndicator="@+id/biv_indicator"
+            app:decelerateMultiple="4"
+            app:loopMode="infiniteLoop"
+            app:pagingIntervalTime="3000"
+            app:singlePageMode="canNotPaging|noIndicator"
+            app:subTitleView="@+id/tv_sub_title"
+            app:titleView="@+id/tv_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#5000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_6">
+
+            <!--用来显示标题的控件-->
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_15"
+                android:textStyle="bold"
+                tools:text="我是标题！" />
+
+            <!--用来显示子标题的控件-->
+            <TextView
+                android:id="@+id/tv_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_6"
+                android:layout_marginStart="@dimen/dp_6"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_14"
+                tools:text="我是子标题" />
+
+            <!--Banner的圆点型指示器-->
+            <com.kelin.banner.view.PointIndicatorView
+                android:id="@+id/biv_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                app:pointColor="#5fff"
+                app:pointRadius="@dimen/dp_3"
+                app:pointSpacing="@dimen/dp_4"
+                app:selectedPointColor="@android:color/white"
+                app:selectedPointRadius="@dimen/dp_4"
+                app:totalCount="4" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

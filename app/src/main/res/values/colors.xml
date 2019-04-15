@@ -3,4 +3,51 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#808080</color>
+    <color name="black">#000000</color>
+    <color name="black6">#666666</color>
+    <color name="tab_gray">#ff999999</color>
+    <color name="tab_green">#ff45c01a</color>
+
+    <color name="grey_e">#EEEEEE</color>
+    <color name="grey_edit">#9D9D9D</color>
+    <color name="line">#dddddd</color>
+    <color name="line2">#cccccc</color>
+    <color name="line3">#bbbbbb</color>
+    <color name="top_barBg">#DD5555</color>
+
+    <color name="red">#DD5555</color>
+    <color name="mybg">#fafafa</color>
+    <color name="my_tvcolor">#333333</color>
+    <color name="my_tvcolor2">#999999</color>
+    <color name="my_tvcolor3">#8d8d8d</color>
+    <color name="my_tvcolor4">#c8c8c8</color>
+
+
+    <color name="banner_color">#EEEEEE</color>
+    <color name="banner_colo2">#00EEEEEE</color>
+    <color name="register_txt_color">#dd5555</color>
+    <color name="register_txt_color_blue">#4a90e2</color>
+    <color name="banner_title_color">#333333</color>
+    <color name="input_bg_color">#FFFFFF</color>
+    <color name="txt_hint_color">#dddddd</color>
+    <color name="input_txt_color">#000000</color>
+    <color name="error_hint_txt_color">#dd5555</color>
+    <color name="login_view_bg">#fafafa</color>
+    <color name="partner_txt_color">#575757</color>
+    <color name="split_line_color">#AFAFAF</color>
+    <color name="userTip_txt_color">#999999</color>
+    <color name="verity_send_txt">#A9A9A9</color>
+    <color name="gray">#dcdcdc</color>
+    <color name="white_light">#dddddd</color>
+    <color name="black_light">#363636</color> <!--黑-->
+    <color name="dialog_hint_color">#bcbcbc</color>
+    <color name="tab_line_color">#bbbbbb</color>
+    <color name="time_during">#8d8d8d</color>
+    <color name="card_item_txt">#575757</color>
+    <color name="item_date_txt">#0f0f0f</color>
+    <color name="search_edit_txt">#e3e4e6</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_half">#80065e8d</color>
 </resources>
