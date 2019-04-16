@@ -55,7 +55,7 @@ public class MyApplication extends Application {
     private void initRxHttpUtils() {
 
         //一个项目多url的配置方法
-        RxUrlManager.getInstance().setMultipleUrl(AppUrlConfig.getAllUrl());
+//        RxUrlManager.getInstance().setMultipleUrl(AppUrlConfig.getAllUrl());
 
         RxHttpUtils
                 .getInstance()

@@ -26,7 +26,7 @@ import io.reactivex.disposables.Disposable;
  * }
  */
 
-public abstract class DataObserver<T> extends BaseObserver<BaseData<T>> {
+public abstract class DataObserver<T> extends BaseObserver<T> {
 
     /**
      * 失败回调
@@ -42,6 +42,10 @@ public abstract class DataObserver<T> extends BaseObserver<BaseData<T>> {
      */
     protected abstract void onSuccess(T data);
 
+
+
+
+
     @Override
     public void doOnSubscribe(Disposable d) {
     }
@@ -55,8 +59,8 @@ public abstract class DataObserver<T> extends BaseObserver<BaseData<T>> {
     }
 
     @Override
-    public void doOnNext(BaseData<T> data) {
-        onSuccess(data.getData());
+    public void doOnNext(T data) {
+        onSuccess(data);
         //可以根据需求对code统一处理
 //        switch (data.getCode()) {
 //            case 200:

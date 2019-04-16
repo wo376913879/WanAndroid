@@ -39,8 +39,15 @@ dependencies {
     //SVG图片
     compile 'com.android.support:design:27.1.1'
     //banner
-    compile 'com.github.kelinZhou:Banner:2.5.5'
+    compile 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
     compile 'com.android.support:cardview-v7:27.1.1'
-    compile 'com.github.bumptech.glide:glide:4.7.1'
+    compile 'com.github.bumptech.glide:glide:4.8.0'
+
+    // XRecyclerView的使用
+    compile 'com.jcodecraeer:xrecyclerview:1.5.8'
+
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.36'
+    //webview
+    api 'com.just.agentweb:agentweb:4.0.3-alpha@aar'
 
 }

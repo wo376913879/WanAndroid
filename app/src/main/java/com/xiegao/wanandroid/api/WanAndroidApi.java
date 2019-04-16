@@ -2,6 +2,7 @@ package com.xiegao.wanandroid.api;
 
 
 import com.xiegao.wanandroid.HttpUtils.bean.BaseData;
+import com.xiegao.wanandroid.bean.ArticleBean;
 import com.xiegao.wanandroid.bean.BannerBean;
 import com.xiegao.wanandroid.bean.HotBean;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * <pre>
@@ -26,7 +28,7 @@ public interface WanAndroidApi {
      * @return
      */
     @GET("banner/json")
-    Observable<BaseData<List<BannerBean>>> getBanner();
+    Observable<BannerBean> getBanner();
 
     /**
      * 热搜
@@ -44,5 +46,11 @@ public interface WanAndroidApi {
     @GET("hotkey/json")
     Observable<String> getHotSearchStringData();
 
-
+    /**
+     * 首页文章列表
+     *
+     * @return
+     */
+    @GET("article/list/{pageNum}/json")
+    Observable<ArticleBean> getarticleStringData(@Path("pageNum") int pageNum);
 }
