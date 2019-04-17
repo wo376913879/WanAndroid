@@ -103,9 +103,9 @@ public class HomeFragment extends BaseFragment {
                 loadMore();
             }
         });
-//        mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
-//        mAdapter.setPreLoadNumber(3);
-        mAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN);
+        mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+        mAdapter.setPreLoadNumber(3);
+//        mAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN);
         XRecyclervire.setAdapter(mAdapter);
 
         XRecyclervire.addOnItemTouchListener(new OnItemClickListener() {
@@ -117,21 +117,12 @@ public class HomeFragment extends BaseFragment {
 
 
         initBannerData();
-        initArticleData();
+        initArticleData(true);
         initRefreshLayout();
 //        refresh();
         return view;
 
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        MultiTypeAdapter adapter = new MultiTypeAdapter(recyclerView);
-
-
-    }
-
     private void initBannerData() {
         ApiHelper.getWanAndroidApi()
                 .getBanner()
@@ -182,7 +173,7 @@ public class HomeFragment extends BaseFragment {
                 });
     }
 
-    private void initArticleData() {
+    private void initArticleData(final boolean isRefresh) {
         ApiHelper.getWanAndroidApi()
                 .getarticleStringData(index)
                 .compose(Transformer.<ArticleBean>switchSchedulers())
@@ -197,7 +188,7 @@ public class HomeFragment extends BaseFragment {
                     protected void onSuccess(final ArticleBean data) {
                         LogUtil.e("ces",data.toString());
 //                        articleBeanList.add(data.getData().getDatas());
-                        setData(true, data.getData().getDatas());
+                        setData(isRefresh, data.getData().getDatas());
 
                         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
                             @Override
@@ -225,24 +216,21 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void refresh() {
-        index = 1;
-
+        index = 0;
         mAdapter.setEnableLoadMore(false);//这里的作用是防止下拉刷新的时候还可以上拉加载
-        initArticleData();
+        initArticleData(true);
     }
     private void loadMore() {
-        initArticleData();
+        initArticleData(false);
     }
 
     private void setData(boolean isRefresh, List<ArticleBean.DataBean.DatasBean> data) {
         index++;
         final int size = data == null ? 0 : data.size();
         if (isRefresh) {
-            articleBeanList=new ArrayList<>();
             mAdapter.setNewData(data);
         } else {
             if (size > 0) {
-                articleBeanList.addAll(data);
                 mAdapter.addData(data);
             }
         }

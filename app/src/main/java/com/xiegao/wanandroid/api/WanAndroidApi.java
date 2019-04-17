@@ -5,6 +5,7 @@ import com.xiegao.wanandroid.HttpUtils.bean.BaseData;
 import com.xiegao.wanandroid.bean.ArticleBean;
 import com.xiegao.wanandroid.bean.BannerBean;
 import com.xiegao.wanandroid.bean.HotBean;
+import com.xiegao.wanandroid.bean.ProjectBean;
 
 import java.util.List;
 
@@ -53,4 +54,14 @@ public interface WanAndroidApi {
      */
     @GET("article/list/{pageNum}/json")
     Observable<ArticleBean> getarticleStringData(@Path("pageNum") int pageNum);
+
+
+    /**
+     * 项目分类
+     *
+     * @return
+     */
+//    https://www.wanandroid.com/project/tree/json
+    @GET("project/tree/json")
+    Observable<ProjectBean> getProjectData();
 }

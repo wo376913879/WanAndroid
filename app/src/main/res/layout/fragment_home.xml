@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     android:paddingBottom="@dimen/dp_6">
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeLayout"
@@ -28,10 +29,12 @@
             />
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/xrecyclervire"
+                android:background="@color/grey_e"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
     </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>
