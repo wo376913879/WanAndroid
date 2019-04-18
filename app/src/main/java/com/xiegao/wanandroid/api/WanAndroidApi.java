@@ -6,6 +6,7 @@ import com.xiegao.wanandroid.bean.ArticleBean;
 import com.xiegao.wanandroid.bean.BannerBean;
 import com.xiegao.wanandroid.bean.HotBean;
 import com.xiegao.wanandroid.bean.ProjectBean;
+import com.xiegao.wanandroid.bean.ProjectListBean;
 
 import java.util.List;
 
@@ -64,4 +65,17 @@ public interface WanAndroidApi {
 //    https://www.wanandroid.com/project/tree/json
     @GET("project/tree/json")
     Observable<ProjectBean> getProjectData();
+
+
+//   2.2 知识体系下的文章
+//    https://www.wanandroid.com/article/list/0/json?cid=60
+//
+//    方法：GET
+//    参数：
+//    cid 分类的id，上述二级目录的id
+//    页码：拼接在链接上，从0开始。
+    @GET("article/list/1/json?cid=294")
+//    @GET("article/list/{pageNum}/json?cid={cid}")
+    Observable<ProjectListBean> getProjectListData();
+//    Observable<ProjectListBean> getProjectListData(@Path("pageNum") int pageNum,int cid);
 }

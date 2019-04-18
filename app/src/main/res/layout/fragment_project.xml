@@ -17,6 +17,17 @@
         app:tabSelectedTextColor="#0294ff"
         app:tabTextAppearance="@style/TabLayoutTextStyle"
         app:tabTextColor="#333333" />
+    <!--<ViewPagerIndicator-->
+        <!--android:id="@+id/tabLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--app:tabBackground="@null"-->
+        <!--app:tabIndicatorColor="#E58D7F"-->
+        <!--app:tabIndicatorHeight="@dimen/dp_26"-->
+        <!--app:tabModeJS="scrollable"-->
+        <!--app:tabSelectedTextColor="#0294ff"-->
+        <!--app:tabTextAppearance="@style/TabLayoutTextStyle"-->
+        <!--app:tabTextColor="#333333" />-->
     <!--<com.nshmura.recyclertablayout.RecyclerTabLayout-->
         <!--android:id="@+id/tabLayout"-->
         <!--android:layout_width="match_parent"-->
