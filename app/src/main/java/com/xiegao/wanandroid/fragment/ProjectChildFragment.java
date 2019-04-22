@@ -145,8 +145,7 @@ public class ProjectChildFragment extends ViewPagerFragment {
 
     private void initgetProjectListData(final boolean isRefresh,int cid) {
         ApiHelper.getWanAndroidApi()
-//                .getProjectListData(index, cid)
-                .getProjectListData()
+                .getProjectListData(index, cid)
                 .compose(Transformer.<ProjectListBean>switchSchedulers())
                 .subscribe(new DataObserver<ProjectListBean>() {
                     @Override

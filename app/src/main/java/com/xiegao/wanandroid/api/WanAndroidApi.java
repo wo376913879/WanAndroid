@@ -13,6 +13,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * <pre>
@@ -74,8 +75,8 @@ public interface WanAndroidApi {
 //    参数：
 //    cid 分类的id，上述二级目录的id
 //    页码：拼接在链接上，从0开始。
-    @GET("article/list/1/json?cid=294")
+@GET("project/list/{pageNum}/json")
 //    @GET("article/list/{pageNum}/json?cid={cid}")
-    Observable<ProjectListBean> getProjectListData();
+    Observable<ProjectListBean> getProjectListData(@Path("pageNum") int pageNum, @Query("cid") int cid);;
 //    Observable<ProjectListBean> getProjectListData(@Path("pageNum") int pageNum,int cid);
 }
