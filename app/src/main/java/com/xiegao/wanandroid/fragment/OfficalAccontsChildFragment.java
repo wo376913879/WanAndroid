@@ -19,16 +19,11 @@ import com.xiegao.wanandroid.HttpUtils.interceptor.Transformer;
 import com.xiegao.wanandroid.HttpUtils.observer.DataObserver;
 import com.xiegao.wanandroid.R;
 import com.xiegao.wanandroid.activity.WebActivity;
-import com.xiegao.wanandroid.adapter.ArticleAdapter;
 import com.xiegao.wanandroid.adapter.ProjectListAdapet;
 import com.xiegao.wanandroid.api.ApiHelper;
 import com.xiegao.wanandroid.base.ViewPagerFragment;
-import com.xiegao.wanandroid.bean.ArticleBean;
-import com.xiegao.wanandroid.bean.EventBusStringBean;
 import com.xiegao.wanandroid.bean.ProjectListBean;
 import com.zhouwei.mzbanner.MZBannerView;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -63,7 +58,7 @@ import butterknife.Unbinder;
  */
 
 @SuppressLint("ValidFragment")
-public class ProjectChildFragment extends ViewPagerFragment {
+public class OfficalAccontsChildFragment extends ViewPagerFragment {
     @BindView(R.id.MZBbanner)
     MZBannerView MZBbanner;
     @BindView(R.id.xrecyclervire)
@@ -76,7 +71,7 @@ public class ProjectChildFragment extends ViewPagerFragment {
     private ProjectListAdapet mAdapter;
     private static final int PAGE_SIZE = 20;
     @SuppressLint("ValidFragment")
-    public ProjectChildFragment(Context context, int cid) {
+    public OfficalAccontsChildFragment(Context context, int cid) {
         this.cid = cid;
         this.context = context;
     }
@@ -148,7 +143,7 @@ public class ProjectChildFragment extends ViewPagerFragment {
 
     private void initgetProjectListData(final boolean isRefresh,int cid) {
         ApiHelper.getWanAndroidApi()
-                .getProjectListData(index, cid)
+                .getWechatChapterArticles(index, cid)
                 .compose(Transformer.<ProjectListBean>switchSchedulers())
                 .subscribe(new DataObserver<ProjectListBean>() {
                     @Override

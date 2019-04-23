@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
     private Dialog dialog;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -187,7 +187,12 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-//    @OnClick(R.id.button)
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    //    @OnClick(R.id.button)
 //    public void onViewClicked() {
 //        if (editText2.getText().toString().equals("gao") && editText3.getText().toString().equals("123456")) {
 //            editText2.setVisibility(View.GONE);

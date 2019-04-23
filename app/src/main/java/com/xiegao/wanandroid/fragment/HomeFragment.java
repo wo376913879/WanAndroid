@@ -52,11 +52,14 @@ import com.xiegao.wanandroid.api.ApiHelper;
 import com.xiegao.wanandroid.base.BaseFragment;
 import com.xiegao.wanandroid.bean.ArticleBean;
 import com.xiegao.wanandroid.bean.BannerBean;
+import com.xiegao.wanandroid.bean.EventBusStringBean;
 import com.xiegao.wanandroid.utils.LogUtil;
 import com.xiegao.wanandroid.utils.XRecyclerViewUtil;
 import com.zhouwei.mzbanner.MZBannerView;
 import com.zhouwei.mzbanner.holder.MZHolderCreator;
 import com.zhouwei.mzbanner.holder.MZViewHolder;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,10 +89,14 @@ public class HomeFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        XRecyclervire=view.findViewById(R.id.xrecyclervire);
-        mSwipeRefreshLayout=view.findViewById(R.id.swipeLayout);
+//        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        if (rootView == null) {
+            rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        }
+
+        unbinder = ButterKnife.bind(this, rootView);
+        XRecyclervire=rootView.findViewById(R.id.xrecyclervire);
+        mSwipeRefreshLayout=rootView.findViewById(R.id.swipeLayout);
 //        XRecyclerViewUtil.xrvSetVertical(getContext(), XRecyclervire, true, true);
 
         mSwipeRefreshLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
@@ -115,13 +122,22 @@ public class HomeFragment extends BaseFragment {
         });
 
 
+//
 
-        initBannerData();
-        initArticleData(true);
-        initRefreshLayout();
 //        refresh();
-        return view;
+        return rootView;
 
+    }
+    @Override
+    protected void onFragmentVisibleChange(boolean isVisible) {
+        super.onFragmentVisibleChange(isVisible);
+        if (isVisible) {
+            initBannerData();
+            initArticleData(true);
+            initRefreshLayout();
+        } else {
+            refresh();
+        }
     }
     private void initBannerData() {
         ApiHelper.getWanAndroidApi()
@@ -139,6 +155,7 @@ public class HomeFragment extends BaseFragment {
                             @Override
                             public void onPageClick(View view, int position) {
                                 Intent intent=new Intent(getContext(), WebActivity.class);
+//                                EventBus.getDefault().post(new EventBusStringBean(data.getData().get(position).getUrl()));
                                 intent.putExtra("weburl",data.getData().get(position).getUrl());
                                 startActivity(intent);
 
@@ -195,6 +212,7 @@ public class HomeFragment extends BaseFragment {
                             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                                 Intent intent=new Intent(getContext(), WebActivity.class);
                                 intent.putExtra("weburl",data.getData().getDatas().get(position).getLink());
+//                                EventBus.getDefault().post(new EventBusStringBean(data.getData().getDatas().get(position).getLink()));
                                 startActivity(intent);
                             }
                         });
@@ -281,6 +299,5 @@ class BannerViewHolder implements MZViewHolder<BannerBean.DataBean> {
         Glide.with(context)
                 .load(data.getImagePath())
                 .into(mImageView);
-//        mImageView.setImageResource(data);
     }
 }

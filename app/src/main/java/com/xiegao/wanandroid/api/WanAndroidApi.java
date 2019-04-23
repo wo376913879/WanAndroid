@@ -5,6 +5,7 @@ import com.xiegao.wanandroid.HttpUtils.bean.BaseData;
 import com.xiegao.wanandroid.bean.ArticleBean;
 import com.xiegao.wanandroid.bean.BannerBean;
 import com.xiegao.wanandroid.bean.HotBean;
+import com.xiegao.wanandroid.bean.OfficalAccontsBean;
 import com.xiegao.wanandroid.bean.ProjectBean;
 import com.xiegao.wanandroid.bean.ProjectListBean;
 
@@ -75,8 +76,20 @@ public interface WanAndroidApi {
 //    参数：
 //    cid 分类的id，上述二级目录的id
 //    页码：拼接在链接上，从0开始。
-@GET("project/list/{pageNum}/json")
-//    @GET("article/list/{pageNum}/json?cid={cid}")
-    Observable<ProjectListBean> getProjectListData(@Path("pageNum") int pageNum, @Query("cid") int cid);;
-//    Observable<ProjectListBean> getProjectListData(@Path("pageNum") int pageNum,int cid);
+    @GET("project/list/{pageNum}/json")
+    Observable<ProjectListBean> getProjectListData(@Path("pageNum") int pageNum, @Query("cid") int cid);
+
+
+
+//    2018-10-13 公众号Tab
+//  增加微信公众号 Tab，
+//
+    @GET("/wxarticle/chapters/json")
+    Observable<OfficalAccontsBean> getOfficalAccontsBeanData();
+
+    /*
+    查看微信公众号历史文章
+   */
+    @GET("wxarticle/list/{pageNum}/{cid}/json")
+    Observable<ProjectListBean> getWechatChapterArticles(@Path("cid") int cid, @Path("pageNum") int pageNum);
 }
