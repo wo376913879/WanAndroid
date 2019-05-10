@@ -3,12 +3,12 @@ package com.xiegao.wanandroid;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +21,7 @@ import com.xiegao.wanandroid.base.BaseActivity;
 import com.xiegao.wanandroid.fragment.HomeFragment;
 import com.xiegao.wanandroid.fragment.OfficalAccontsFragment;
 import com.xiegao.wanandroid.fragment.ProjectFragment;
+import com.xiegao.wanandroid.view.coordinatormenu.CoordinatorMenu;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,6 +44,8 @@ public class MainActivity extends BaseActivity {
     TextView textView3;
     @BindView(R.id.button2)
     Button button2;
+//    @BindView(R.id.menu)
+//    CoordinatorMenu menu;
     private AlertDialog alertDialog;
 
     private HomeFragment fragment1;
@@ -208,4 +211,23 @@ public class MainActivity extends BaseActivity {
 //    @OnClick(R.id.button2)
 //    public void onViewClicked() {
 //    }
+    private long exitTime = 0;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void exit() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(getApplicationContext(), "再按一次退出程序",
+                    Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+        }
+    }
 }

@@ -21,6 +21,9 @@ package com.xiegao.wanandroid.bean;
  * ━━━━━━感觉萌萌哒━━━━━━
  */
 
+import android.app.Activity;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -80,7 +83,7 @@ public class ArticleBean {
         private int pageCount;
         private int size;
         private int total;
-        private List<DatasBean> datas;
+        private ArrayList<DatasBean> datas;
 
         public int getCurPage() {
             return curPage;
@@ -130,11 +133,11 @@ public class ArticleBean {
             this.total = total;
         }
 
-        public List<DatasBean> getDatas() {
+        public ArrayList<DatasBean> getDatas() {
             return datas;
         }
 
-        public void setDatas(List<DatasBean> datas) {
+        public void setDatas(ArrayList<DatasBean> datas) {
             this.datas = datas;
         }
 

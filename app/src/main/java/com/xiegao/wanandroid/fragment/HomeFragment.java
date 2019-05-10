@@ -76,16 +76,19 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.MZBbanner)
     MZBannerView mMZBanner;
 
-//    @BindView(R.id.xrecyclervire)
+    //    @BindView(R.id.xrecyclervire)
     RecyclerView XRecyclervire;
 
-//    @BindView(R.id.swipeLayout)
+    //    @BindView(R.id.swipeLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
     Unbinder unbinder;
     private int index = 0;
     private static final int PAGE_SIZE = 20;
     private ArticleAdapter mAdapter;
-    private List<ArticleBean.DataBean.DatasBean> articleBeanList=new ArrayList<>();
+    private  ArrayList<ArticleBean.DataBean.DatasBean> articleBeanList=new ArrayList<>();
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -115,11 +118,15 @@ public class HomeFragment extends BaseFragment {
 //        mAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN);
         XRecyclervire.setAdapter(mAdapter);
 
-        XRecyclervire.addOnItemTouchListener(new OnItemClickListener() {
-            @Override
-            public void onSimpleItemClick(final BaseQuickAdapter adapter, final View view, final int position) {
-            }
-        });
+//        XRecyclervire.addOnItemTouchListener(new OnItemClickListener() {
+//            @Override
+//            public void onSimpleItemClick(final BaseQuickAdapter adapter, final View view, final int position) {
+//            Intent intent=new Intent(getContext(), WebActivity.class);
+//        intent.putExtra("weburl",data.getData().getDatas().get(position).getLink());
+////                                EventBus.getDefault().post(new EventBusStringBean(data.getData().getDatas().get(position).getLink()));
+//        startActivity(intent);
+//  }
+//        });
 
 
 //
@@ -202,21 +209,23 @@ public class HomeFragment extends BaseFragment {
                     }
 
                     @Override
-                    protected void onSuccess(final ArticleBean data) {
-                        LogUtil.e("ces",data.toString());
-//                        articleBeanList.add(data.getData().getDatas());
+                    protected void onSuccess( ArticleBean data) {
+                        if (isRefresh) {
+                            articleBeanList=data.getData().getDatas();
+                        }else {
+                            articleBeanList.addAll(data.getData().getDatas());
+                        }
                         setData(isRefresh, data.getData().getDatas());
 
                         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                                 Intent intent=new Intent(getContext(), WebActivity.class);
-                                intent.putExtra("weburl",data.getData().getDatas().get(position).getLink());
+                                intent.putExtra("weburl",articleBeanList.get(position).getLink());
 //                                EventBus.getDefault().post(new EventBusStringBean(data.getData().getDatas().get(position).getLink()));
                                 startActivity(intent);
                             }
                         });
-
                         mAdapter.setEnableLoadMore(true);
                         mSwipeRefreshLayout.setRefreshing(false);
                     }

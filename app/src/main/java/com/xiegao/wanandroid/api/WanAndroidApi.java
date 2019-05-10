@@ -12,7 +12,10 @@ import com.xiegao.wanandroid.bean.ProjectListBean;
 import java.util.List;
 
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -57,7 +60,6 @@ public interface WanAndroidApi {
      */
     @GET("article/list/{pageNum}/json")
     Observable<ArticleBean> getarticleStringData(@Path("pageNum") int pageNum);
-
 
     /**
      * 项目分类

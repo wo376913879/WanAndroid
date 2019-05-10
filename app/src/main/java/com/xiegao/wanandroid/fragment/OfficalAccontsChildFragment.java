@@ -25,6 +25,7 @@ import com.xiegao.wanandroid.base.ViewPagerFragment;
 import com.xiegao.wanandroid.bean.ProjectListBean;
 import com.zhouwei.mzbanner.MZBannerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -69,6 +70,7 @@ public class OfficalAccontsChildFragment extends ViewPagerFragment {
     private int cid;
     private Context context;
     private ProjectListAdapet mAdapter;
+    private List<ProjectListBean.DataBean.DatasBean> beanArrayList=new ArrayList<>();
     private static final int PAGE_SIZE = 20;
     @SuppressLint("ValidFragment")
     public OfficalAccontsChildFragment(Context context, int cid) {
@@ -153,13 +155,18 @@ public class OfficalAccontsChildFragment extends ViewPagerFragment {
 
                     @Override
                     protected void onSuccess(final ProjectListBean data) {
+                        if (isRefresh) {
+                            beanArrayList=data.getData().getDatas();
+                        }else {
+                            beanArrayList.addAll(data.getData().getDatas());
+                        }
                         setData(isRefresh, data.getData().getDatas());
 
                         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                                 Intent intent=new Intent(getContext(), WebActivity.class);
-                                intent.putExtra("weburl",data.getData().getDatas().get(position).getLink());
+                                intent.putExtra("weburl",beanArrayList.get(position).getLink());
                                 startActivity(intent);
                             }
                         });

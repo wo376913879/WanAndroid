@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.xiegao.wanandroid.HttpUtils.RxHttpUtils;
 import com.xiegao.wanandroid.HttpUtils.interfaces.ILoadingView;
 import com.xiegao.wanandroid.utils.LogUtil;
 import com.xiegao.wanandroid.widget.LoadingDialog;
@@ -76,13 +77,13 @@ public class BaseActivity extends AppCompatActivity {
         super.onPause();
         LogUtil.i(TAG +"  ================  onPause");
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         LogUtil.i(TAG +"  ================  onDestroy");
+        //取消所有请求
+        RxHttpUtils.cancelAll();
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

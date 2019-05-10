@@ -105,8 +105,8 @@ public class MyApplication extends Application {
                     @Override
                     public Map<String, String> buildHeaders() {
                         HashMap<String, String> hashMap = new HashMap<>();
-                        hashMap.put("appVersion", BuildConfig.VERSION_NAME);
-                        hashMap.put("client", "android");
+//                        hashMap.put("appVersion", BuildConfig.VERSION_NAME);
+//                        hashMap.put("client", "android");
 //                        hashMap.put("token", "your_token");
 //                        hashMap.put("other_header", URLEncoder.encode("中文需要转码"));
                         return hashMap;
