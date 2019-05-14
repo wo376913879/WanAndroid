@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.xiegao.wanandroid.HttpUtils.RxHttpUtils;
 import com.xiegao.wanandroid.HttpUtils.interceptor.Transformer;
 import com.xiegao.wanandroid.HttpUtils.observer.DataObserver;
 import com.xiegao.wanandroid.R;
@@ -22,6 +23,7 @@ import com.xiegao.wanandroid.activity.WebActivity;
 import com.xiegao.wanandroid.adapter.ArticleAdapter;
 import com.xiegao.wanandroid.adapter.ProjectListAdapet;
 import com.xiegao.wanandroid.api.ApiHelper;
+import com.xiegao.wanandroid.api.WanAndroidApi;
 import com.xiegao.wanandroid.base.ViewPagerFragment;
 import com.xiegao.wanandroid.bean.ArticleBean;
 import com.xiegao.wanandroid.bean.EventBusStringBean;
@@ -151,7 +153,8 @@ public class ProjectChildFragment extends ViewPagerFragment {
     }
 
     private void initgetProjectListData(final boolean isRefresh,int cid) {
-        ApiHelper.getWanAndroidApi()
+        RxHttpUtils
+                .createApi(WanAndroidApi.class)
                 .getProjectListData(index, cid)
                 .compose(Transformer.<ProjectListBean>switchSchedulers())
                 .subscribe(new DataObserver<ProjectListBean>() {

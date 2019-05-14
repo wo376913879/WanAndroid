@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.OkHttpClient;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -62,7 +63,7 @@ public class MyApplication extends Application {
                 .init(this)
                 .config()
                 //自定义factory的用法
-                //.setCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .setCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 //.setConverterFactory(ScalarsConverterFactory.create(),GsonConverterFactory.create(GsonAdapter.buildGson()))
                 //配置全局baseUrl
                 .setBaseUrl("https://www.wanandroid.com/")
@@ -113,7 +114,7 @@ public class MyApplication extends Application {
                     }
                 })
                 //添加自定义拦截器
-                //.setAddInterceptor()
+                .setAddInterceptor()
                 //开启缓存策略(默认false)
                 //1、在有网络的时候，先去读缓存，缓存时间到了，再去访问网络获取数据；
                 //2、在没有网络的时候，去读缓存中的数据。
@@ -123,7 +124,7 @@ public class MyApplication extends Application {
                 //不设置的话，默认不对cookie做处理
                 .setCookieType(new SPCookieStore(this))
                 //可以添加自己的拦截器(比如使用自己熟悉三方的缓存库等等)
-                //.setAddInterceptor(null)
+//                .setAddInterceptor(null)
                 //全局ssl证书认证
                 //1、信任所有证书,不安全有风险（默认信任所有证书）
                 //.setSslSocketFactory()

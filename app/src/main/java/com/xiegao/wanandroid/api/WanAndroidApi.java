@@ -5,11 +5,14 @@ import com.xiegao.wanandroid.HttpUtils.bean.BaseData;
 import com.xiegao.wanandroid.bean.ArticleBean;
 import com.xiegao.wanandroid.bean.BannerBean;
 import com.xiegao.wanandroid.bean.HotBean;
+import com.xiegao.wanandroid.bean.LonginBean;
 import com.xiegao.wanandroid.bean.OfficalAccontsBean;
 import com.xiegao.wanandroid.bean.ProjectBean;
 import com.xiegao.wanandroid.bean.ProjectListBean;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
@@ -94,4 +97,16 @@ public interface WanAndroidApi {
    */
     @GET("wxarticle/list/{pageNum}/{cid}/json")
     Observable<ProjectListBean> getWechatChapterArticles(@Path("cid") int cid, @Path("pageNum") int pageNum);
+
+
+
+    /**
+     * 登录请求
+     * @return
+     */
+    @POST("user/login")
+//    Observable<String> getLogin(@Body HashMap<String, String> paramsMap);
+    Observable<LonginBean> getLogin(@Query("username") String username, @Query("password") String password);
+//    Observable<String> getLogin(@Body RequestBody requestBody);
+
 }

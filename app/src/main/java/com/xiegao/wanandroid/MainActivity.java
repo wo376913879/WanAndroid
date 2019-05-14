@@ -19,8 +19,10 @@ import android.widget.Toast;
 
 import com.xiegao.wanandroid.base.BaseActivity;
 import com.xiegao.wanandroid.fragment.HomeFragment;
+import com.xiegao.wanandroid.fragment.MineFragment;
 import com.xiegao.wanandroid.fragment.OfficalAccontsFragment;
 import com.xiegao.wanandroid.fragment.ProjectFragment;
+import com.xiegao.wanandroid.view.BottomNavigationViewHelper;
 import com.xiegao.wanandroid.view.coordinatormenu.CoordinatorMenu;
 
 import butterknife.BindView;
@@ -51,6 +53,7 @@ public class MainActivity extends BaseActivity {
     private HomeFragment fragment1;
     private ProjectFragment fragment2;
     private OfficalAccontsFragment fragment3;
+    private MineFragment fragment4;
     private Fragment[] fragments;
     private int lastfragment;//用于记录上个选择的Fragment
     private boolean isFirstRun;
@@ -63,6 +66,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        BottomNavigationViewHelper.disableShiftMode(bnv);
 //        bnv.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
 //        SharedPreferences sharedPreferences = this.getSharedPreferences("share", MODE_PRIVATE);
 //        isFirstRun = sharedPreferences.getBoolean("isFirstRun", true);
@@ -102,7 +106,8 @@ public class MainActivity extends BaseActivity {
         fragment1 = new HomeFragment();
         fragment2 = new ProjectFragment();
         fragment3 = new OfficalAccontsFragment();
-        fragments = new Fragment[]{fragment1, fragment2, fragment3};
+        fragment4 = new MineFragment();
+        fragments = new Fragment[]{fragment1, fragment2, fragment3,fragment4};
         lastfragment = 0;
         getSupportFragmentManager().beginTransaction().replace(R.id.mainview, fragment1).show(fragment1).commit();
 
@@ -136,13 +141,20 @@ public class MainActivity extends BaseActivity {
                     if (lastfragment != 2) {
                         switchFragment(lastfragment, 2);
                         lastfragment = 2;
-
                     }
 
                     return true;
                 }
 
+                case R.id.mine: {
+                    if (lastfragment != 3) {
+                        switchFragment(lastfragment, 3);
+                        lastfragment = 3;
 
+                    }
+
+                    return true;
+                }
             }
 
 

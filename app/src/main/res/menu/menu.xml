@@ -19,4 +19,11 @@
         android:icon="@drawable/icon_offical_accounts"
         android:title="@string/offical_accounts"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/mine"
+        android:enabled="true"
+        android:icon="@drawable/ic_mine"
+        android:title="@string/mine"
+        app:showAsAction="ifRoom" />
+
 </menu>
