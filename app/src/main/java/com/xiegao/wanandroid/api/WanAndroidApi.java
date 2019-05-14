@@ -109,4 +109,11 @@ public interface WanAndroidApi {
     Observable<LonginBean> getLogin(@Query("username") String username, @Query("password") String password);
 //    Observable<String> getLogin(@Body RequestBody requestBody);
 
+//    https://www.wanandroid.com/user/register
+//
+//    方法：POST
+//            参数
+//    username,password,repassword
+    @POST("user/register")
+    Observable<String> getRegister(@Query("username") String username, @Query("password") String password, @Query("repassword") String repassword);
 }
