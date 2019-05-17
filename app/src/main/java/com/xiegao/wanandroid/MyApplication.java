@@ -43,7 +43,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
  */
 
 public class MyApplication extends Application {
-
+    // 客户端登录标示
+    public static final String LOGIN_FLAG ="XIEGAO";
     @Override
     public void onCreate() {
         super.onCreate();

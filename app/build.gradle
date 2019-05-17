@@ -59,4 +59,6 @@ dependencies {
     api 'com.just.agentweb:agentweb:4.0.3-alpha@aar' // (必选)
     //EvenBus
     compile 'org.greenrobot:eventbus:3.1.1'
+    //圆角图片
+    compile 'com.github.open-android:RoundedImageView:v1.0.0'
 }

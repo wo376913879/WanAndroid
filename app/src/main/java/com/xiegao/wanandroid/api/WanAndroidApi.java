@@ -9,6 +9,7 @@ import com.xiegao.wanandroid.bean.LonginBean;
 import com.xiegao.wanandroid.bean.OfficalAccontsBean;
 import com.xiegao.wanandroid.bean.ProjectBean;
 import com.xiegao.wanandroid.bean.ProjectListBean;
+import com.xiegao.wanandroid.bean.RegisterBean;
 
 import java.util.HashMap;
 import java.util.List;
@@ -115,5 +116,5 @@ public interface WanAndroidApi {
 //            参数
 //    username,password,repassword
     @POST("user/register")
-    Observable<String> getRegister(@Query("username") String username, @Query("password") String password, @Query("repassword") String repassword);
+    Observable<RegisterBean> getRegister(@Query("username") String username, @Query("password") String password, @Query("repassword") String repassword);
 }
