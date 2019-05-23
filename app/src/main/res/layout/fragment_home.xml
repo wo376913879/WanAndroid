@@ -6,6 +6,17 @@
     android:orientation="vertical"
 
     android:paddingBottom="@dimen/dp_6">
+
+        <com.zhouwei.mzbanner.MZBannerView
+            android:padding="@dimen/dp_10"
+            android:id="@+id/MZBbanner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_180"
+            app:open_mz_mode="true"
+            app:canLoop="true"
+            app:indicatorAlign="center"
+            app:indicatorPaddingLeft="@dimen/dp_10"
+            />
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeLayout"
         android:layout_width="match_parent"
@@ -17,16 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-        <com.zhouwei.mzbanner.MZBannerView
-            android:padding="@dimen/dp_10"
-            android:id="@+id/MZBbanner"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_180"
-            app:open_mz_mode="true"
-            app:canLoop="true"
-            app:indicatorAlign="center"
-            app:indicatorPaddingLeft="@dimen/dp_10"
-            />
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/xrecyclervire"
                 android:background="@color/grey_e"
@@ -34,14 +35,6 @@
                 android:layout_height="match_parent">
 
             </android.support.v7.widget.RecyclerView>
-
-            <com.xiegao.wanandroid.view.RefreshRecyclerView.RefreshRecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone">
-
-            </com.xiegao.wanandroid.view.RefreshRecyclerView.RefreshRecyclerView>
 
         </LinearLayout>
     </android.support.v4.widget.SwipeRefreshLayout>

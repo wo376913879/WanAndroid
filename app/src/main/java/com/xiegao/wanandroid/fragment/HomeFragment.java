@@ -143,6 +143,7 @@ public class HomeFragment extends BaseFragment {
             initArticleData(true);
             initRefreshLayout();
         } else {
+//            initBannerData();
             refresh();
         }
     }

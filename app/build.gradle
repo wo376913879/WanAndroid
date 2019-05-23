@@ -21,7 +21,8 @@ android {
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -37,10 +38,10 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
     //SVG图片
-    compile 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:design:28.0.0-alpha3'
     //banner
     compile 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
-    compile 'com.android.support:cardview-v7:27.1.1'
+    compile 'com.android.support:cardview-v7:28.0.0'
     compile 'com.github.bumptech.glide:glide:4.8.0'
 
     // XRecyclerView的使用

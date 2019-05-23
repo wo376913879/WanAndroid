@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        BottomNavigationViewHelper.disableShiftMode(bnv);
+//        BottomNavigationViewHelper.disableShiftMode(bnv);
 //        bnv.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
 //        SharedPreferences sharedPreferences = this.getSharedPreferences("share", MODE_PRIVATE);
 //        isFirstRun = sharedPreferences.getBoolean("isFirstRun", true);
