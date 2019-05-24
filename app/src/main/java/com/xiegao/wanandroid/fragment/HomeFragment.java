@@ -144,7 +144,7 @@ public class HomeFragment extends BaseFragment {
             initRefreshLayout();
         } else {
 //            initBannerData();
-            refresh();
+//            refresh();
         }
     }
     private void initBannerData() {
@@ -210,7 +210,7 @@ public class HomeFragment extends BaseFragment {
                     }
 
                     @Override
-                    protected void onSuccess( ArticleBean data) {
+                    protected void onSuccess(ArticleBean data) {
                         if (isRefresh) {
                             articleBeanList=data.getData().getDatas();
                         }else {

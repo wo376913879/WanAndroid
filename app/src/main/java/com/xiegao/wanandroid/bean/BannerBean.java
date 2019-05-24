@@ -47,7 +47,7 @@ public class BannerBean {
         this.data = data;
     }
 
-    public static class DataBean {
+    public  class DataBean {
         /**
          * desc : 一起来做个App吧
          * id : 10

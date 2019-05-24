@@ -1,16 +1,22 @@
 package com.xiegao.wanandroid.activity;
 
+import android.content.Intent;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.xiegao.wanandroid.MainActivity;
 import com.xiegao.wanandroid.R;
 import com.xiegao.wanandroid.base.BaseActivity;
 import com.xiegao.wanandroid.bean.CircleBean;
 import com.xiegao.wanandroid.utils.DisplayUtils;
 import com.xiegao.wanandroid.view.BubbleView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +61,7 @@ public class WelcomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
-
+        EventBus.getDefault().register(this);
 
 
         initPoint();
@@ -141,4 +147,17 @@ public class WelcomeActivity extends BaseActivity {
 
     }
 
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventThread(Integer event) {
+      startActivity(new Intent(this, MainActivity.class));
+      finish();
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 }

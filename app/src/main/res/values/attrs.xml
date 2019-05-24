@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="RefreshRecyclerView">
-        <attr name="refresh_enable" format="boolean"/>
-        <!-- 其中之一为 true，都能使用 加载更多 和 显示没有更多数据 功能 -->
-        <attr name="load_more_enable" format="boolean"/>
-        <attr name="show_no_more_enable" format="boolean"/>
-    </declare-styleable>
+    <!---->
+    <!--<attr name="borderRadius" format="dimension"/>-->
+    <!--<attr name="src" format="reference"/>-->
+    <!--<attr name="url_src" format="string"/>-->
+    <!--<attr name="type">-->
+        <!--<enum name="circle" value="0"/>-->
+        <!--<enum name="round" value="1"/>-->
+        <!--<enum name="url" value="2"/>-->
+        <!--<enum name="circle_url" value="3"/>-->
+        <!--&lt;!&ndash;<enum name="round_url" value="4"/>&ndash;&gt;-->
+    <!--</attr>-->
 
 
-    <attr name="borderRadius" format="dimension"/>
-    <attr name="src" format="reference"/>
-    <attr name="url_src" format="string"/>
-    <attr name="type">
-        <enum name="circle" value="0"/>
-        <enum name="round" value="1"/>
-        <enum name="url" value="2"/>
-        <enum name="circle_url" value="3"/>
-        <!--<enum name="round_url" value="4"/>-->
-    </attr>
-
-
-    <declare-styleable name="CustomImageView">
-        <attr name="borderRadius"/>
-        <attr name="src"/>
-        <attr name="url_src"/>
-        <attr name="type"/>
-    </declare-styleable>
+    <!--<declare-styleable name="CustomImageView">-->
+        <!--<attr name="borderRadius"/>-->
+        <!--<attr name="src"/>-->
+        <!--<attr name="url_src"/>-->
+        <!--<attr name="type"/>-->
+    <!--</declare-styleable>-->
 
 </resources>

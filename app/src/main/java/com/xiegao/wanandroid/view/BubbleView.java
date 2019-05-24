@@ -23,6 +23,8 @@ import com.xiegao.wanandroid.activity.WebActivity;
 import com.xiegao.wanandroid.bean.CircleBean;
 import com.xiegao.wanandroid.utils.BezierUtil;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -280,9 +282,9 @@ public class BubbleView extends View {
                     if (onBubbleAnimationListener!=null){
                         onBubbleAnimationListener.onCompletedAnimationListener();
                     }else {
+                        EventBus.getDefault().post(0);
                         //动画执行完毕  进行下一步操作
-                        Intent intent=new Intent(getContext(), MainActivity.class);
-                        getContext().startActivity(intent);
+
                     }
                 }
             }

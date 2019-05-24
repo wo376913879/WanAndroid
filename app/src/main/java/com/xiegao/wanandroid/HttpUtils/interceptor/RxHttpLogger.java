@@ -39,7 +39,7 @@ public class RxHttpLogger implements HttpLoggingInterceptor.Logger {
         mMessage.append(message.concat("\n"));
         // 请求或者响应结束，打印整条日志
         if (message.startsWith("<-- END HTTP")) {
-            LogUtil.e("RxHttpUtils", mMessage.toString());
+            LogUtil.i("RxHttpUtils", mMessage.toString());
         }
     }
 }

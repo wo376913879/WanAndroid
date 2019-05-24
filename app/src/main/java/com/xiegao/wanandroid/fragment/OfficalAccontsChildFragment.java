@@ -71,7 +71,7 @@ public class OfficalAccontsChildFragment extends ViewPagerFragment {
     private Context context;
     private ProjectListAdapet mAdapter;
     private List<ProjectListBean.DataBean.DatasBean> beanArrayList=new ArrayList<>();
-    private static final int PAGE_SIZE = 20;
+    private  final int PAGE_SIZE = 20;
     @SuppressLint("ValidFragment")
     public OfficalAccontsChildFragment(Context context, int cid) {
         this.cid = cid;
